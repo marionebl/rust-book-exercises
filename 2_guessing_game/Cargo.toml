@@ -1,0 +1,7 @@
+[package]
+authors = ["Mario Nebl <hello@mario-nebl.de>"]
+name = "guessing_game"
+version = "0.1.0"
+
+[dependencies]
+rand = "0.3.18"
