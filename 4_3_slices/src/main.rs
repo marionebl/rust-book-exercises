@@ -7,9 +7,7 @@ fn main() {
         println!("{}", hello);
     }
 
-    {
-        s.clear();
-    }
+    s.clear();
 }
 
 fn first_word(s: &String) -> usize {
