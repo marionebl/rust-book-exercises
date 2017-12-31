@@ -65,3 +65,10 @@ fn try_corrupt() {
     // https://doc.rust-lang.org/error-index.html#E0596
     // let c3 = &mut s;
 }
+
+// https://doc.rust-lang.org/error-index.html#E0596
+// fn dangle() -> &String {
+//     let s = String::from("hello");
+//     &s;
+//     // s goes out of scope here, leaving &s dangling
+// }
