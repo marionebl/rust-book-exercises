@@ -2,14 +2,18 @@ fn main() {
     let mut s = String::from("Hello world");
     let word = first_word_pos(&s);
 
+    let lit = "hello world";
+    let first = first_word(lit);
+    println!("first: {}", first);
+
     {
         let hello = first_word(&s);
-        println!("first: {}", hello);
+        println!("second: {}", hello);
     }
 
     {
         let hello = &s[0..word];
-        println!("second: {}", hello);
+        println!("third: {}", hello);
     }
 
     s.clear();
@@ -27,7 +31,7 @@ fn first_word_pos(s: &String) -> usize {
     s.len()
 }
 
-fn first_word(s: &String) -> &str {
+fn first_word(s: &str) -> &str {
     for (i, &item) in s.as_bytes().iter().enumerate() {
         if item == b' ' {
             return &s[0..i];
