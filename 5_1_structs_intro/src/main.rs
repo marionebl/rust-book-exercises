@@ -22,6 +22,17 @@ fn main() {
 
     let user2 = build_user(user1.email, String::from("username"));
     println!("user2: {:?}", user2);
+
+    let user3 = build_from_user(String::from("a@a.com"), String::from("a"), user2);
+    println!("user3: {:?}", user3);
+}
+
+fn build_from_user(email: String, username: String, tpl: User) -> User {
+    User {
+        email,
+        username,
+        ..tpl // this consumes the instance of User
+    }
 }
 
 fn build_user(email: String, username: String) -> User {
