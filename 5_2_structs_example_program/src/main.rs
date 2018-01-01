@@ -5,6 +5,9 @@ struct Rectangle {
 }
 
 impl Rectangle {
+    fn square(size: u32) -> Rectangle {
+        Rectangle { width: size, height: size }
+    }
     fn area(&self) -> u32 {
         self.width * self.height
     }
@@ -16,9 +19,9 @@ impl Rectangle {
 fn main() {
     let rect = Rectangle { width: 30, height: 50 };
     let rect2 = Rectangle { width: 10, height: 40 };
-    let rect3 = Rectangle { width: 60, height: 45 };
+    let square = Rectangle::square(60);
 
     println!("The area of {rect:?} is {area} square pixels", rect=rect, area=rect.area());
     println!("rect fits rect2 {}", rect.fits(&rect2));
-    println!("rect fits rect3 {}", rect.fits(&rect3));
+    println!("rect fits square {}", rect.fits(&square));
 }
