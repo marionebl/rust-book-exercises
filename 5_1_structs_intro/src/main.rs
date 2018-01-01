@@ -6,6 +6,12 @@ struct User {
     active: bool
 }
 
+#[derive(Debug)]
+struct Color(i8, i8, i8);
+
+#[derive(Debug)]
+struct Point(i32, i32, i32);
+
 fn main() {
     let mut user1 = User {
         email: String::from("someone@example.com"),
@@ -25,6 +31,12 @@ fn main() {
 
     let user3 = build_from_user(String::from("a@a.com"), String::from("a"), user2);
     println!("user3: {:?}", user3);
+
+    let black = Color(0, 0, 0);
+    let origin = Point(0, 0, 0);
+
+    println!("black: {:?}", black);
+    println!("origin: {:?}", origin);
 }
 
 fn build_from_user(email: String, username: String, tpl: User) -> User {
