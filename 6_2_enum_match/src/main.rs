@@ -9,7 +9,10 @@ enum Coin {
 impl Coin {
     fn value(&self) -> i32 {
         match self {
-            &Coin::Penny => 1,
+            &Coin::Penny => {
+                println!("Lucky penny!");
+                1
+            },
             &Coin::Nickel => 5,
             &Coin::Dime => 10,
             &Coin::Quarter => 25,
@@ -19,7 +22,12 @@ impl Coin {
 
 fn main() {
     let dime = Coin::Dime;
-    let val = dime.value();
+    let nickel = Coin::Nickel;
+    let penny = Coin::Penny;
+    let quarter = Coin::Quarter;
 
-    println!("{}", val);
+    println!("{}", penny.value());
+    println!("{}", dime.value());
+    println!("{}", nickel.value());
+    println!("{}", quarter.value());
 }
