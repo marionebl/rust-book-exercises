@@ -3,22 +3,26 @@ mod outermost {
 
     fn middle_secret_function() {}
 
-    mod inside {
-        pub fn inner_function() {}
+   pub mod inside {
+       use outermost::middle_secret_function;
+
+        pub fn inner_function() {
+            middle_secret_function()
+        }
 
         fn secret_function() {}
     }
 }
 
-fn try_me() {
+#[test]
+fn test() {
     outermost::middle_function();
+
     // https://doc.rust-lang.org/error-index.html#E0603
     // outermost::middle_secret_function not public
     // outermost::middle_secret_function();
 
-    // https://doc.rust-lang.org/error-index.html#E0603
-    // outermost::inside not public
-    // outermost::inside::inner_function();  
+    outermost::inside::inner_function();  
 
     // https://doc.rust-lang.org/error-index.html#E0603
     // outermost::inside::secret_function not public
