@@ -1,3 +1,14 @@
+pub mod a {
+    pub mod series {
+        pub mod of {
+            pub fn nested_modules() {
+
+            }
+        }
+    }
+}
+
+
 fn main() {
-    println!("Hello, world!");
+    a::series::of::nested_modules();
 }
