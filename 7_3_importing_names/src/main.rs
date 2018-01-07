@@ -8,10 +8,21 @@ pub mod a {
     }
 }
 
+enum TrafficLight {
+    Red,
+    Yellow,
+    Green,
+}
+
 use a::series::of;
 use a::series::of::nested_modules;
+use TrafficLight::{Red, Yellow};
 
 fn main() {
     of::nested_modules();
     nested_modules();
+
+    let _red = Red;
+    let _yellow = Yellow;
+    let _green = TrafficLight::Green;
 }
