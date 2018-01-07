@@ -16,4 +16,16 @@ fn main() {
     println!("empty: {:?}", empty);
     println!("consecutive_three {:?}", consecutive_three);
     println!("v {:?}", v);
+
+    let third = &v[2];
+    let third_get = v.get(2);
+
+    println!("third: {}", third);
+    println!("third_get: {:?}", third_get);
+
+    // !panic
+    // let non_existant = &v[999]; 
+    let non_existant_get = v.get(1000);
+
+    println!("non_existant_get: {:?}", non_existant_get);
 }
