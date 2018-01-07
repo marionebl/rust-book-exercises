@@ -30,6 +30,18 @@ fn main() {
     println!("non_existant_get: {:?}", non_existant_get);
 
     invalid_references();
+
+    for i in &v {
+        println!("i {}", i);
+    }
+
+    let mut w = vec![100, 32, 57];
+
+    for i in &mut w {
+        *i += 50;
+    }
+
+    println!("w: {:?}", w);
 }
 
 fn invalid_references() {
