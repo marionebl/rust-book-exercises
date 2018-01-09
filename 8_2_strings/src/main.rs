@@ -31,4 +31,12 @@ fn main() {
     // println!("{}", t1);
 
     println!("t2: {}, t3: {}", t2, t3);
+
+    let u1 = String::from("tic");
+    let u2 = "tac";
+    let u3 = "toe";
+
+    let s = format!("{}-{}-{}", &u1, u2, &u3);
+
+    println!("{}", s);
 }
