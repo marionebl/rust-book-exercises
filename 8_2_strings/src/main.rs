@@ -1,9 +1,10 @@
 fn main() {
-    let mut s = String::new();
+    let mut _s = String::new();
+    _s.push_str("bar");
 
     let data = "initial contents";
-    let t = data.to_string();
-    let u = "initial_contents".to_string();
+    let _t = data.to_string();
+    let _u = "initial_contents".to_string();
 
-    let v = String::from(data);
+    let _v = String::from(data);
 }
