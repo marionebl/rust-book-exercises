@@ -1,3 +1,5 @@
+use std::ops::Add;
+
 fn main() {
     let mut _s = String::new();
     let _bar = "bar";
@@ -19,4 +21,14 @@ fn main() {
     // println!("{}", s1);
 
     println!("s2: {}, s3: {}", s2, s3);
+
+    let t1 = String::from("Hello, ");
+    let t2 = String::from("world!");
+
+    let t3 = t1.add(&t2);
+
+    // https://doc.rust-lang.org/error-index.html#E0382
+    // println!("{}", t1);
+
+    println!("t2: {}, t3: {}", t2, t3);
 }
