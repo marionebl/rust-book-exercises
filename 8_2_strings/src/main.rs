@@ -9,4 +9,14 @@ fn main() {
     let _u = "initial_contents".to_string();
 
     let _v = String::from(data);
+
+    let s1 = String::from("Hello, ");
+    let s2 = String::from("world!");
+
+    let s3 = s1 + &s2; // String::add takes ownership of the left hand of the addition
+
+    // https://doc.rust-lang.org/error-index.html#E0382
+    // println!("{}", s1);
+
+    println!("s2: {}, s3: {}", s2, s3);
 }
