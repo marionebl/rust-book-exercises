@@ -39,4 +39,15 @@ fn main() {
     let s = format!("{}-{}-{}", &u1, u2, &u3);
 
     println!("{}", s);
+
+    // iterate over each character, 
+    // separating diacritics
+    for c in "नमस्ते".chars() {
+        println!("{}", c);
+    }
+
+    // iterate over each byte in string
+    for b in "नमस्ते".bytes() {
+        // println!("b {}", b);
+    }
 }
