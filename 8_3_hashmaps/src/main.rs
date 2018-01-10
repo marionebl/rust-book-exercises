@@ -19,10 +19,13 @@ fn main() {
     let field_value = String::from("Blue");
 
     let mut map = HashMap::new();
-    map.insert(field_name, field_value);
+    map.insert(&field_name, field_value);
 
     println!("map: {:?}", map);
 
     // https://doc.rust-lang.org/error-index.html#E0382
     // println!("field_name: {}, field_value: {}", field_name, field_value);
+
+    let score = map.get(&field_name);
+    println!("score: {:?}", score);
 }
