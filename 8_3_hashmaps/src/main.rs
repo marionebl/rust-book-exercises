@@ -32,4 +32,15 @@ fn main() {
     for (key, value) in &scores_two {
         println!("{}: {}", key, value);
     }
+
+    // Overwrite scores.get("Blue")
+    scores.insert(String::from("Blue"), 25);
+
+    println!("overwritten scores: {:?}", scores);
+
+    scores.entry(String::from("Blue")).or_insert(50);
+    scores.entry(String::from("Yellow")).or_insert(100);
+    scores.entry(String::from("Green")).or_insert(25);
+
+    println!("inserted scores: {:?}", scores);
 }
