@@ -28,4 +28,8 @@ fn main() {
 
     let score = map.get(&field_name);
     println!("score: {:?}", score);
+
+    for (key, value) in &scores_two {
+        println!("{}: {}", key, value);
+    }
 }
