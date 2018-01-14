@@ -10,12 +10,12 @@ fn main() {
         // Thing(ref value) Match value, provide reference
         // Thing(&value) Match reference
         Err(ref error) if error.kind() == ErrorKind::NotFound => { // Match guard
-            File::create(name).unwrap()
+            File::create(name).expect("Failed to create hello.txt")
         },
         Err(error) => {
             panic!("Problem while opening {}: {:?}", name, error)
         }
     };
 
-    fs::remove_file(name).unwrap();
+    fs::remove_file(name).expect("Failed cleaning up hello.txt");
 }
