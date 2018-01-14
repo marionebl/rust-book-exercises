@@ -7,7 +7,9 @@ fn main() {
 
     let _f = match File::open(name) {
         Ok(file) => file,
-        Err(ref error) if error.kind() == ErrorKind::NotFound => { // oO
+        // Thing(ref value) Match value, provide reference
+        // Thing(&value) Match reference
+        Err(ref error) if error.kind() == ErrorKind::NotFound => { // Match guard
             match File::create(name) {
                 Ok(file) => file,
                 Err(e) => {
