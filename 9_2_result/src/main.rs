@@ -21,13 +21,6 @@ fn open_or_create(filename: &str) -> Result<File, io::Error> {
         .open(filename)
 }
 
-fn read_username_from_file(filename: &str) -> Result<String, io::Error> {
-    let mut f = open_or_create(filename)?;
-    let mut s = String::new();
-    f.read_to_string(&mut s)?;
-    Ok(s)
-}
-
 /**
  * let x = fn(y)? is equivalent to
  * 
@@ -36,3 +29,10 @@ fn read_username_from_file(filename: &str) -> Result<String, io::Error> {
  *   Err(e) => return Err(e) // propagates error to parent scope
  * }
  */
+fn read_username_from_file(filename: &str) -> Result<String, io::Error> {
+    let mut s = String::new();
+    
+    open_or_create(filename)?.read_to_string(&mut s)?;
+
+    Ok(s)
+}
