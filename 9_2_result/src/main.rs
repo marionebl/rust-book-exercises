@@ -27,3 +27,12 @@ fn read_username_from_file(filename: &str) -> Result<String, io::Error> {
     f.read_to_string(&mut s)?;
     Ok(s)
 }
+
+/**
+ * let x = fn(y)? is equivalent to
+ * 
+ * let x = match fn(y) {
+ *   Ok(z) => z, // unwrap result
+ *   Err(e) => return Err(e) // propagates error to parent scope
+ * }
+ */
