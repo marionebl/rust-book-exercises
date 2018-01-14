@@ -1,21 +1,36 @@
 use std::fs;
 use std::fs::File;
 use std::io;
-use std::io::ErrorKind;
+use std::io::Read;
 
 fn main() {
-    let name = "hello.txt";
+    let filename = "hello.txt";
+    let username = read_username_from_file(filename)
+        .expect("Could not read username");
 
-    let _f = open_or_create(name);
-    fs::remove_file(name).expect("Failed cleaning up hello.txt");
+    println!("username: {}", username);
+
+    fs::remove_file(filename).expect("Failed cleaning up hello.txt");
 }
 
 fn open_or_create(filename: &str) -> Result<File, io::Error> {
-    match File::open(filename) {
-        Ok(file) => Ok(file),
-        Err(ref error) if error.kind() == ErrorKind::NotFound => {
-            File::create(filename)
-        },
-        Err(error) => Err(error)
+    fs::OpenOptions::new()
+        .read(true)
+        .write(true)
+        .create(true)
+        .open(filename)
+}
+
+fn read_username_from_file(filename: &str) -> Result<String, io::Error> {
+    let mut f = match open_or_create(filename) {
+        Ok(file) => file,
+        Err(e) => return Err(e),
+    };
+
+    let mut s = String::new();
+
+    match f.read_to_string(&mut s) {
+        Ok(_) => Ok(s),
+        Err(e) => Err(e),
     }
 }
