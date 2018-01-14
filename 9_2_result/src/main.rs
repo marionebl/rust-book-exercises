@@ -22,15 +22,8 @@ fn open_or_create(filename: &str) -> Result<File, io::Error> {
 }
 
 fn read_username_from_file(filename: &str) -> Result<String, io::Error> {
-    let mut f = match open_or_create(filename) {
-        Ok(file) => file,
-        Err(e) => return Err(e),
-    };
-
+    let mut f = open_or_create(filename)?;
     let mut s = String::new();
-
-    match f.read_to_string(&mut s) {
-        Ok(_) => Ok(s),
-        Err(e) => Err(e),
-    }
+    f.read_to_string(&mut s)?;
+    Ok(s)
 }
