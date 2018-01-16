@@ -1,10 +1,14 @@
-struct Point<T> {
+extern crate num;
+
+use num::{Num};
+
+struct Point<T: Num> {
     x: T,
     y: T,
 }
 
-impl<T> Point<T> {
-    fn x(&self) -> &T {
+impl<T: Num> Point<T> {
+    fn x(&self) -> &T where T: num::Num {
         &self.x
     }
 }
@@ -16,7 +20,11 @@ impl Point<f32> {
 }
 
 fn main() {
-    let p = Point { x: 5, y: 10 };
+    // E0277 the trait bound `&str: num::Num` is not satisfied
+    // let p = Point { x: "foo", y: "bar" };
+    // println!("p.x = {}", p.x());
+
+    let p = Point { x: 1, y: 1 };
     println!("p.x = {}", p.x());
 
     // E0599 
