@@ -1,5 +1,7 @@
 pub trait Summarizable {
-    fn summary(&self) -> String;
+    fn summary(&self) -> String {
+        String::from("(Read more...)")
+    }
 }
 
 pub struct NewsArticle {
