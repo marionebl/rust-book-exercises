@@ -1,25 +1,11 @@
-pub trait Summarizable {
-    fn summary(&self) -> String;
-}
+mod aggregator;
 
-pub struct NewsArticle {
-    pub headline: String,
-    pub location: String,
-    pub author: String,
-    pub content: String,
-}
+use aggregator::{Summarizable, NewsArticle, Tweet};
 
 impl Summarizable for NewsArticle {
     fn summary(&self) -> String {
-        format!("{}, by {} ({})", self.headline, self.headline, self.location)
+        format!("{}, by {} ({})", self.headline, self.author, self.location)
     }
-}
-
-pub struct Tweet {
-    pub username: String,
-    pub content: String,
-    pub reply: bool,
-    pub retweet: bool
 }
 
 impl Summarizable for Tweet {
@@ -37,4 +23,13 @@ fn main() {
     };
 
     println!("1 new tweet: {}", tweet.summary());
+
+    let article = NewsArticle {
+        headline: String::from("Headline"),
+        location: String::from("NY"),
+        author: String::from("Jon Doe"),
+        content: String::from("content")
+    };
+
+    println!("1 article: {}", article.summary());
 }
