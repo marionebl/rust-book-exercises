@@ -15,3 +15,9 @@ pub struct Tweet {
     pub reply: bool,
     pub retweet: bool
 }
+
+pub struct WeatherForecast {
+    pub high_temp: f64,
+    pub low_temp: f64,
+    pub chance_of_precipitation: f64,
+}
