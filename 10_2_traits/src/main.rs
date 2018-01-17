@@ -22,6 +22,12 @@ impl Summarizable for WeatherForecast {
     }
 }
 
+struct CustomContent {
+    content: String,
+}
+
+impl Summarizable for CustomContent {}
+
 fn main() {
     let tweet = Tweet {
         username: String::from("horse_ebooks"),
@@ -48,4 +54,10 @@ fn main() {
     };
 
     println!("weather forecast: {}", cast.summary());
+
+    let custom = CustomContent {
+        content: String::from("content")
+    };
+
+    println!("custom content: {}", custom.summary());
 }
